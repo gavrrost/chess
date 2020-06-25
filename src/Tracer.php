@@ -1,7 +1,6 @@
 <?php
 
-class Tracer
-{
+class Tracer {
     private $desk;
     function __construct(Desk $desk) {
         $this->desk = $desk;

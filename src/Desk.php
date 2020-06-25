@@ -48,8 +48,7 @@ class Desk {
         unset($this->figures[$xFrom][$yFrom]);
     }
 
-    public function isEmpty($x, $y)
-    {
+    public function isEmpty($x, $y) {
         return !isset($this->figures[$x][$y]);
     }
 
@@ -68,8 +67,7 @@ class Desk {
         echo "  abcdefgh\n";
     }
 
-    public function getFigure($x, $y)
-    {
+    public function getFigure($x, $y) {
         if ($this->isEmpty($x, $y)) {
             throw new \Exception("No figure on cell");
         }

@@ -14,8 +14,7 @@ abstract class Figure {
         throw new \Exception("Not implemented");
     }
 
-    public function isBlack()
-    {
+    public function isBlack() {
         return $this->isBlack;
     }
 

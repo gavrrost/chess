@@ -1,12 +1,11 @@
 <?php
 
-class Chess
-{
+class Chess {
     private $desk;
     private $player;
     private $tracer;
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->desk = new Desk();
 
         $whitePlayer = new Player(false);
@@ -18,8 +17,7 @@ class Chess
         $this->tracer = new Tracer($this->desk);
     }
 
-    public function move($move)
-    {
+    public function move($move) {
         if (!preg_match('/^([a-h])(\d)-([a-h])(\d)$/', $move, $match)) {
             throw new \Exception("Incorrect move");
         }
@@ -40,13 +38,11 @@ class Chess
         $figure->move();
     }
 
-    public function dump()
-    {
+    public function dump() {
         $this->desk->dump();
     }
 
-    public function setCurrentPlayer(Player $player)
-    {
+    public function setCurrentPlayer(Player $player) {
         $this->player = $player;
     }
 }
