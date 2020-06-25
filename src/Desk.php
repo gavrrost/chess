@@ -75,4 +75,8 @@ class Desk {
         }
         return $this->figures[$x][$y];
     }
+
+    public function hasCell($x, $y) {
+        return $x >= 'a' && $x <= 'h' && $y >= 1 && $y <= 8;
+    }
 }

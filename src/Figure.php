@@ -1,7 +1,9 @@
 <?php
 
-class Figure {
+abstract class Figure {
     protected $isBlack;
+
+    protected $wasMoved = false;
 
     public function __construct($isBlack) {
         $this->isBlack = $isBlack;
@@ -15,5 +17,13 @@ class Figure {
     public function isBlack()
     {
         return $this->isBlack;
+    }
+
+    abstract public function getDirectionsBlank();
+
+    abstract public function getDirectionsBattle();
+
+    public function move() {
+        $this->wasMoved = true;
     }
 }
