@@ -41,20 +41,16 @@ class Desk {
         $this->figures['h'][8] = new Rook(true);
     }
 
-    public function move($move) {
-        if (!preg_match('/^([a-h])(\d)-([a-h])(\d)$/', $move, $match)) {
-            throw new \Exception("Incorrect move");
-        }
-
-        $xFrom = $match[1];
-        $yFrom = $match[2];
-        $xTo   = $match[3];
-        $yTo   = $match[4];
-
+    public function move($xFrom, $yFrom, $xTo, $yTo) {
         if (isset($this->figures[$xFrom][$yFrom])) {
             $this->figures[$xTo][$yTo] = $this->figures[$xFrom][$yFrom];
         }
         unset($this->figures[$xFrom][$yFrom]);
+    }
+
+    public function isEmpty($x, $y)
+    {
+        return !isset($this->figures[$x][$y]);
     }
 
     public function dump() {
@@ -70,5 +66,13 @@ class Desk {
             echo "\n";
         }
         echo "  abcdefgh\n";
+    }
+
+    public function getFigure($x, $y)
+    {
+        if ($this->isEmpty($x, $y)) {
+            throw new \Exception("No figure on cell");
+        }
+        return $this->figures[$x][$y];
     }
 }

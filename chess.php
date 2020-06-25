@@ -5,16 +5,16 @@ try {
         require_once $file;
     }
 
-    $desk = new Desk();
+    $chess = new Chess();
 
     $args = $argv;
     array_shift($args);
 
     foreach ($args as $move) {
-        $desk->move($move);
+        $chess->move($move);
     }
 
-    $desk->dump();
+    $chess->dump();
 } catch (\Exception $e) {
     echo $e->getMessage() . "\n";
     exit(1);
